@@ -1,0 +1,31 @@
+{
+  "name": "recipe-finder",
+  "version": "1.0.0",
+  "description": "A simple and responsive **Recipe Finder Web App** built with **React** and **Tailwind CSS**.   Search for recipes by dish name and view details like ingredients, instructions, and YouTube videos.   Data is fetched from **[TheMealDB API](https://www.themealdb.com/)**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jana10101/Recipe-Finder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jana10101/Recipe-Finder/issues"
+  },
+  "homepage": "https://github.com/Jana10101/Recipe-Finder#readme",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "react-router-dom": "^7.10.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18"
+  }
+}
