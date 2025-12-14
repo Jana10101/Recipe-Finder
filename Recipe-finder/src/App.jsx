@@ -1,35 +1,33 @@
 import { useState } from 'react';
 import SearchBar from './components/SearchBar';
 import RecipeList from './components/RecipeList';
-
-// Mock data for testing UI
-const mockRecipes = [
-  {
-    idMeal: '1',
-    strMeal: 'Spaghetti Carbonara',
-    strCategory: 'Pasta',
-    strArea: 'Italian',
-    strMealThumb: 'https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg',
-  },
-  {
-    idMeal: '2',
-    strMeal: 'Chicken Tikka Masala',
-    strCategory: 'Chicken',
-    strArea: 'Indian',
-    strMealThumb: 'https://www.themealdb.com/images/media/meals/wyxwsp1486979827.jpg',
-  },
-  // Add more mock recipes as needed
-];
+import RecipeDetails from './components/RecipeDetails';
+import Loader from './components/Loader';
 
 function App() {
-  const [recipes, setRecipes] = useState(mockRecipes);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [recipes, setRecipes] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleSearch = (query) => {
-    setSearchQuery(query);
-    // For now, just log – API in Week 3
-    console.log('Searching for:', query);
+  const handleSearch = async (query) => {
+    setLoading(true);
+    setError(null);
+    setRecipes([]);
+    try {
+      const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`);
+      if (!response.ok) throw new Error('Network error');
+      const data = await response.json();
+      setRecipes(data.meals || []);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const openDetails = (recipe) => setSelectedRecipe(recipe);
+  const closeDetails = () => setSelectedRecipe(null);
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -38,8 +36,11 @@ function App() {
       </header>
       <main className="container mx-auto p-4">
         <SearchBar onSearch={handleSearch} />
-        <RecipeList recipes={recipes} />
+        {loading && <Loader />}
+        {error && <p className="text-red-500 text-center">{error}</p>}
+        <RecipeList recipes={recipes} onSelect={openDetails} />
       </main>
+      {selectedRecipe && <RecipeDetails recipe={selectedRecipe} onClose={closeDetails} />}
     </div>
   );
 }

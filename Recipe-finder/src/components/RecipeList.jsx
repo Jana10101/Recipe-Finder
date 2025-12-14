@@ -1,6 +1,6 @@
 import RecipeCard from './RecipeCard';
 
-function RecipeList({ recipes }) {
+function RecipeList({ recipes, onSelect }) {
   if (!recipes.length) {
     return <p className="text-center text-gray-500">No recipes found. Try searching!</p>;
   }
@@ -8,7 +8,7 @@ function RecipeList({ recipes }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {recipes.map((recipe) => (
-        <RecipeCard key={recipe.idMeal} recipe={recipe} />
+        <RecipeCard key={recipe.idMeal} recipe={recipe} onClick={() => onSelect(recipe)} />
       ))}
     </div>
   );
