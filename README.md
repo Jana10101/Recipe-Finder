@@ -1,87 +1,16 @@
-# Recipe Finder App 🍽️
+# React + Vite
 
-A simple and responsive **Recipe Finder Web App** built with **React** and **Tailwind CSS**.  
-Search for recipes by dish name and view details like ingredients, instructions, and YouTube videos.  
-Data is fetched from **[TheMealDB API](https://www.themealdb.com/)**.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## Features
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- Search recipes by dish name
-- Display recipe cards with image, category, and cuisine
-- View full recipe details:
-  - Ingredients
-  - Instructions
-  - YouTube video (if available)
-  - Source link
-- Responsive design for desktop, tablet, and mobile
-- Friendly error messages for no results or API issues
-- Optional: Favorites list, recipe categories, dark mode
+## React Compiler
 
----
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Technologies
+## Expanding the ESLint configuration
 
-- React
-- Tailwind CSS
-- TheMealDB API
-- Vite
-- Fetch / Axios
-
----
-
-## Getting Started
-
-1. **Clone the repo**
-```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-````
-
-2. **Install dependencies**
-
-```bash
-npm install
-```
-
-3. **Start the app**
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
-## Project Structure
-
-```
-src/
-├── components/       # Reusable UI components
-├── pages/            # Pages like Home
-├── App.jsx           # Main app
-└── index.css         # Tailwind styles
-```
-
----
-
-## API Example
-
-Search recipe by name:
-
-```
-https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
-```
-
----
-
-## 🚀 Deployment
-
-The application is deployed on **Vercel**.  
-You can access the live website using the link below:
-```  
-https://recipefinder-two-weld.vercel.app
-```
----
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
