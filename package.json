@@ -1,4 +1,5 @@
 {
+  
   "name": "recipe-finder",
   "version": "1.0.0",
   "description": "A simple and responsive Recipe Finder Web App built with React and Tailwind CSS. Search for recipes by dish name and view details like ingredients, instructions, and YouTube videos. Data is fetched from TheMealDB API.",
