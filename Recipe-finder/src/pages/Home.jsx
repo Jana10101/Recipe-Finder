@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import WelcomeSection from '../components/WelcomeSection';
 import LoadingSpinner from '../components/LoadingSpinner';
 
-function Home() {
+function Home({ favorites, toggleFavorite, isFavorite }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -55,7 +55,7 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-pink-50">
-      <Header />
+      <Header favoritesCount={favorites.length} />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <SearchBar 
@@ -82,6 +82,8 @@ function Home() {
                 key={recipe.idMeal}
                 recipe={recipe}
                 onSelect={() => setSelectedRecipe(recipe)}
+                isFavorite={isFavorite(recipe.idMeal)}
+                onToggleFavorite={() => toggleFavorite(recipe)}
               />
             ))}
           </div>
@@ -92,6 +94,8 @@ function Home() {
         <RecipeModal 
           recipe={selectedRecipe}
           onClose={() => setSelectedRecipe(null)}
+          isFavorite={isFavorite(selectedRecipe.idMeal)}
+          onToggleFavorite={() => toggleFavorite(selectedRecipe)}
         />
       )}
     </div>

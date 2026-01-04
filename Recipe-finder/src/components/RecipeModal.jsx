@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RecipeModal({ recipe, onClose }) {
+function RecipeModal({ recipe, onClose, isFavorite, onToggleFavorite }) {
   const getIngredients = (meal) => {
     const ingredients = [];
     for (let i = 1; i <= 20; i++) {
@@ -17,7 +17,28 @@ function RecipeModal({ recipe, onClose }) {
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in">
       <div className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
         <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center rounded-t-3xl z-10">
-          <h2 className="text-2xl font-bold text-gray-800">{recipe.strMeal}</h2>
+          <div className="flex items-center gap-3">
+            <h2 className="text-2xl font-bold text-gray-800">{recipe.strMeal}</h2>
+            <button
+              onClick={onToggleFavorite}
+              className="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110"
+              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+            >
+              <svg 
+                className={`w-6 h-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-gray-400'}`}
+                fill={isFavorite ? 'currentColor' : 'none'}
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" 
+                />
+              </svg>
+            </button>
+          </div>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-full transition-colors"
