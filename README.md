@@ -79,6 +79,8 @@ https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
 
 ## Deployment
 
-Deploy on **Vercel** or **Netlify** for a live version.
-
+It has been deployed on **Vercel** and you can visit my website fromm this link:
+```
+https://recipefinder-two-weld.vercel.app
+```
 ---
