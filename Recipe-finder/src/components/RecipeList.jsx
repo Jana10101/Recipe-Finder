@@ -1,12 +1,10 @@
-import RecipeCard from './RecipeCard';
-
 function RecipeList({ recipes, onSelect, onToggleFavorite, isFavorite }) {
-  if (!recipes.length) {
-    return <p className="text-center text-gray-500 dark:text-gray-400">No recipes found. Try searching!</p>;
+  if (!recipes?.length) {
+    return null; // We handle empty states in parent now
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {recipes.map((recipe) => (
         <RecipeCard
           key={recipe.idMeal}
@@ -19,5 +17,3 @@ function RecipeList({ recipes, onSelect, onToggleFavorite, isFavorite }) {
     </div>
   );
 }
-
-export default RecipeList;

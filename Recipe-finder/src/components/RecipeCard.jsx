@@ -1,18 +1,40 @@
-function RecipeCard({ recipe, onClick, onToggleFavorite, isFavorite }) {
+import React from 'react';
+
+function RecipeCard({ recipe, onSelect }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-      <img src={recipe.strMealThumb} alt={recipe.strMeal} className="w-full h-48 object-cover" />
-      <div className="p-4">
-        <h2 className="text-xl font-semibold mb-2 dark:text-white">{recipe.strMeal}</h2>
-        <p className="text-gray-600 dark:text-gray-300">Category: {recipe.strCategory}</p>
-        <p className="text-gray-600 dark:text-gray-300">Cuisine: {recipe.strArea}</p>
-        <div className="flex justify-between mt-4">
-          <button onClick={onClick} className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            View Details
-          </button>
-          <button onClick={() => onToggleFavorite(recipe)} className="text-red-500 hover:text-red-700">
-            {isFavorite ? '❤️ Remove Favorite' : '♡ Add Favorite'}
-          </button>
+    <div
+      onClick={onSelect}
+      className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden group transform hover:-translate-y-1"
+    >
+      <div className="relative overflow-hidden h-56">
+        <img
+          src={recipe.strMealThumb}
+          alt={recipe.strMeal}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+        <div className="absolute top-3 right-3 bg-white px-3 py-1 rounded-full text-sm font-medium text-orange-600 shadow-lg">
+          {recipe.strCategory}
+        </div>
+      </div>
+      <div className="p-5">
+        <h3 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors">
+          {recipe.strMeal}
+        </h3>
+        <div className="flex items-center gap-2 text-gray-600 text-sm">
+          <svg 
+            className="w-4 h-4" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth={2} 
+              d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+            />
+          </svg>
+          <span>{recipe.strArea}</span>
         </div>
       </div>
     </div>
