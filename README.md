@@ -77,10 +77,11 @@ https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
 
 ---
 
-## Deployment
+## 🚀 Deployment
 
-It has been deployed on **Vercel** and you can visit my website fromm this link:
-```
+The application is deployed on **Vercel**.  
+You can access the live website using the link below:
+```  
 https://recipefinder-two-weld.vercel.app
 ```
 ---
