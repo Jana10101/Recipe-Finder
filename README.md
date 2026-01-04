@@ -1,16 +1,74 @@
-# React + Vite
+# 🍽️ Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive Recipe Finder app built with React, Vite, and Tailwind CSS. Search for recipes, save favorites, and get detailed cooking instructions.
 
-Currently, two official plugins are available:
+**Live Demo:** [https://recipe-finder-zeta-three.vercel.app/](https://recipe-finder-zeta-three.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔍 Search recipes by dish name with real-time results
+- ❤️ Save favorite recipes with persistent storage
+- 📱 Fully responsive design
+- 🎨 Modern UI with smooth animations
+- 🎥 Direct links to YouTube cooking videos
+- 🌍 Discover dishes from various cuisines
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Technologies
+
+- React 18
+- Vite
+- Tailwind CSS
+- TheMealDB API
+- LocalStorage
+
+---
+
+## 🚀 Setup
+
+```bash
+# Clone repository
+git clone https://github.com/Jana10101/Recipe-Finder.git
+cd Recipe-Finder/Recipe-finder
+
+# Install dependencies
+npm install
+
+# Run dev server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/       # UI components
+├── pages/           # Home & Favorites pages
+├── App.jsx          # Main app
+└── index.css        # Global styles
+```
+
+---
+
+## 🎯 Usage
+
+1. Type a dish name in the search bar
+2. Click any recipe card for full details
+3. Click the heart icon to save favorites
+4. Access favorites from the header button
+
+---
+
+## 🌐 API
+
+Uses [TheMealDB API](https://www.themealdb.com/) for recipe data.
+
+---
